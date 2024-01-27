@@ -32,7 +32,10 @@ jobs:
     - run: flutter pub get
     - run: flutter test
     - run: flutter build apk
-
+  upload:
+    runs-on: macos-latest
+    needs: build
+    steps:
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
